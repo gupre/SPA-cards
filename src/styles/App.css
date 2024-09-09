@@ -11,87 +11,45 @@ body {
   line-height: 1.6;
 }
 
-header {
-  background-color: #007bff;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-h1 {
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+}
+
+.home-title {
   margin-bottom: 20px;
   font-size: 2.5rem;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Стили для ссылок */
-a {
+.home-link {
   color: #007bff;
   text-decoration: none;
+  font-size: 1.5rem;
 }
 
-a:hover {
+.home-link:hover {
   text-decoration: underline;
 }
 
-/* Стили для основной страницы */
-.home-page {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.home-page button {
-  margin-top: 20px;
-}
-
-footer {
-  background-color: #007bff;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Стили для мобильных устройств */
 @media (max-width: 768px) {
-  main {
+  .home {
     padding: 10px;
   }
 
-  h1 {
+  .home-title {
     font-size: 2rem;
   }
 
-  button {
-    width: 100%;
-    padding: 12px;
+  .home-link {
+    font-size: 1rem;
   }
 }
