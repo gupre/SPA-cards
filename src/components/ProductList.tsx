@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+
 import Card from './Card';
 import { Product } from '../types/Product';
 
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
-import '../styles/ProductList.css';
+import './styles/ProductList.css';
 
 const ProductList: React.FC = () => {
   const [showFavorites, setShowFavorites] = useState(false);

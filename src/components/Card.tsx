@@ -7,7 +7,7 @@ import { toggleLike, deleteProduct } from '../store';
 
 import { useNavigate } from 'react-router-dom';
 
-import '../styles/Card.css';
+import './styles/Card.css';
 
 interface CardProps {
   product: Product;
@@ -16,9 +16,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ product }) => {
   const navigate = useNavigate();
 
-
   const dispatch = useDispatch();
-
 
   const handleLike = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -40,7 +38,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
 
   return (
     <div className="card" onClick={handleCardClick}>
-      <img src={product.image} alt={product.title} />
+      <img src={product.imageUrl} alt={product.title} />
       <h3>{product.title}</h3>
       <p>{product.description.slice(0, 100)}...</p>
       <button className={`like ${product.isLiked ? 'liked' : ''}`} onClick={handleLike}>

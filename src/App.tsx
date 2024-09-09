@@ -14,7 +14,14 @@ const App: React.FC = () => {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/create-product" element={<CreateProductPage />} />
-        <Route path="/" element={<h1>Добро пожаловать! <br/><a href="/products">Перейти к продуктам</a></h1>} />
+        <Route path="/" element={
+          <div className='home'>
+            <div className="home-container">
+              <h1 className='home-title'>Добро пожаловать! <br/> </h1>
+              <a className='home-link' href="/products">Перейти к продуктам</a>
+            </div>
+          </div>
+          } />
       </Routes>
     </Router>
   );

@@ -6,6 +6,8 @@ import { Product } from '../types/Product';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 
+import '../styles/ProductPage.css'
+
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id: string }>(); 
   const navigate = useNavigate();
@@ -19,9 +21,9 @@ const ProductPage: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='page-product'>
       <ProductDetails product={product} />
-      <button onClick={() => navigate('/products')}>Вернуться к списку</button>
+      <button className='page-product-btn' onClick={() => navigate('/products')}>Вернуться к списку</button>
     </div>
   );
 };
