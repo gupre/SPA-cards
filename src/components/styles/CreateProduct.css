@@ -1,0 +1,72 @@
+.create-product {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.create-product-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.create-product label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.create-product input,
+.create-product textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.create-product textarea {
+  min-height: 17px;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  resize: none;
+}
+
+.create-product input:focus,
+.create-product textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.create-product-btn {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-product-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.form-success {
+  color: green;
+  font-size: 16px;
+  margin-top: -10px;
+}
