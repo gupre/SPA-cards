@@ -1,49 +1,53 @@
-import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { configureStore, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { Product } from '../types/Product';
+
+
+export const fetchProducts = createAsyncThunk<Product[]>('products/fetchProducts', async () => {
+  const response = await axios.get('https://fakestoreapi.com/products');
+  return response.data;
+});
 
 interface ProductsState {
   products: Product[];
+  favorites: number[];
+  isFetched: boolean; 
 }
 
 const initialState: ProductsState = {
-  products: [
-    {
-      id: 1,
-      title: 'Продукт 1',
-      description: 'Описание продукта 1',
-      imageUrl: 'https://via.placeholder.com/150',
-      isLiked: false,
-    },
-    {
-      id: 2,
-      title: 'Продукт 2',
-      description: 'Описание продукта 2',
-      imageUrl: 'https://via.placeholder.com/150',
-      isLiked: false,
-    },
-  ],
+  products: [], 
+  favorites: [], 
+  isFetched: false, 
 };
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    toggleLike(state, action: PayloadAction<number>) {
-      const product = state.products.find((p) => p.id === action.payload);
-      if (product) {
-        product.isLiked = !product.isLiked;
+    toggleFavorite(state, action) {
+      const id = action.payload;
+      if (state.favorites.includes(id)) {
+        state.favorites = state.favorites.filter(favId => favId !== id);
+      } else {
+        state.favorites.push(id);
       }
     },
-    deleteProduct(state, action: PayloadAction<number>) {
-      state.products = state.products.filter((p) => p.id !== action.payload);
+    addProduct(state, action) {
+      state.products.push(action.payload); 
     },
-    addProduct(state, action: PayloadAction<Product>) {
-      state.products.push(action.payload);
-    },
+    removeProduct(state, action) {
+      state.products = state.products.filter(product => product.id !== action.payload); 
+    }
   },
+  extraReducers: (builder) => {
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      state.products = [...action.payload];
+      state.isFetched = true; 
+    });
+  }
 });
 
-export const { toggleLike, deleteProduct, addProduct } = productsSlice.actions;
+export const { toggleFavorite, addProduct, removeProduct } = productsSlice.actions;
 
 const store = configureStore({
   reducer: {
@@ -51,5 +55,7 @@ const store = configureStore({
   },
 });
 
-export default store;
 export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export default store;

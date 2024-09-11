@@ -40,15 +40,17 @@ const CreateProduct: React.FC = () => {
       title,
       description,
       imageUrl,
-      isLiked: false,
     };
 
     setError('');
     setSuccess(true);
 
     dispatch(addProduct(newProduct));
+
+    setTimeout(() => {
+      navigate('/products');
+    }, 1000);
     
-    navigate('/products');
   };
 
   return (

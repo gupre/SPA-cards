@@ -1,8 +1,8 @@
 import React from 'react';
 import { Product } from '../types/Product';
 
-import { useDispatch } from 'react-redux';
-import { toggleLike, deleteProduct } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavorite, removeProduct, RootState } from '../store';
 
 
 import { useNavigate } from 'react-router-dom';
@@ -15,20 +15,18 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ product }) => {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
-  const handleLike = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const favorites = useSelector((state: RootState) => state.products.favorites);
 
-    dispatch(toggleLike(product.id));
-
+  const handleFavoriteClick = (id: number) => {
+    dispatch(toggleFavorite(id));
   };
 
   const handleDelete = (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    dispatch(deleteProduct(product.id));
+    dispatch(removeProduct(product.id));
 
   };
 
@@ -37,12 +35,12 @@ const Card: React.FC<CardProps> = ({ product }) => {
   };
 
   return (
-    <div className="card" onClick={handleCardClick}>
-      <img src={product.imageUrl} alt={product.title} />
+    <div className="card">
+      <img src={product.imageUrl} alt={product.title} onClick={handleCardClick} />
       <h3>{product.title}</h3>
       <p>{product.description.slice(0, 100)}...</p>
-      <button className={`like ${product.isLiked ? 'liked' : ''}`} onClick={handleLike}>
-        {product.isLiked ? '❤️' : '♡'}
+      <button className={`like ${favorites.includes(product.id) ? 'liked' : ''}`} onClick={() => handleFavoriteClick(product.id)}>
+        {favorites.includes(product.id) ? '❤️' : '♡'}
       </button>
       <button className="delete" onClick={handleDelete}>🗑️</button>
     </div>
