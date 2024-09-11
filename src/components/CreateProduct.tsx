@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Product } from '../types/Product';
-
 import { useDispatch } from 'react-redux';
+
 import { addProduct } from '../store';
+import { Product } from '../types/Product';
 
 import './styles/CreateProduct.css'
 
 const CreateProduct: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');

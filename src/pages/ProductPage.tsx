@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
 import ProductDetails from '../components/ProductDetails';
 import { Product } from '../types/Product';
 
