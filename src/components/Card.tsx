@@ -36,7 +36,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
 
   return (
     <div className="card">
-      <img src={product.imageUrl} alt={product.title} onClick={handleCardClick} />
+      <img src={product.image} alt={product.title} onClick={handleCardClick} />
       <h3>{product.title}</h3>
       <p>{product.description.slice(0, 100)}...</p>
       <button className={`like ${favorites.includes(product.id) ? 'liked' : ''}`} onClick={() => handleFavoriteClick(product.id)}>

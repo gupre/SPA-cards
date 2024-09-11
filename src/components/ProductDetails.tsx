@@ -12,7 +12,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     <div className="product-details">
       <div className='product-details-container'>
         <h1 className='product-details-title'>{product.title}</h1>
-        <img className='product-details-image' src={product.imageUrl} alt={product.title} />
+        <img className='product-details-image' src={product.image} alt={product.title} />
         <p className='product-details-description'>{product.description}</p>
       </div>
     </div>

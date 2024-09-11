@@ -13,7 +13,7 @@ const CreateProduct: React.FC = () => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [image, setimage] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -25,12 +25,12 @@ const CreateProduct: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!title || !description || !imageUrl) {
+    if (!title || !description || !image) {
       setError('Все поля обязательны для заполнения');
       return;
     }
 
-    if (!validateUrl(imageUrl)) {
+    if (!validateUrl(image)) {
       setError('Введите корректный URL изображения');
       return false;
     }
@@ -39,18 +39,13 @@ const CreateProduct: React.FC = () => {
       id: Date.now(), 
       title,
       description,
-      imageUrl,
+      image,
     };
 
     setError('');
     setSuccess(true);
 
     dispatch(addProduct(newProduct));
-
-    setTimeout(() => {
-      navigate('/products');
-    }, 1000);
-    
   };
 
   return (
@@ -75,8 +70,8 @@ const CreateProduct: React.FC = () => {
           <label>Ссылка на изображение </label>
           <input
             type="text"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            value={image}
+            onChange={(e) => setimage(e.target.value)}
           />
         </div>
         {error && <div className="error-message">{error}</div>}
