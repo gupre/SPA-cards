@@ -1,0 +1,39 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+}
+
+.home-title {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.home-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+.page-btn {
+  margin: 0 auto;
+}

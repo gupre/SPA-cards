@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+## Задача:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Создать SPA со списком карточек, на каждой из которых выводится картинка и любая информация на ваш вкус, которая пришла с эндпоинта или созданная пользователем.
 
-## Available Scripts
+Дизайн не важен, главное, чтобы было просто и аккуратно. По стэку ориентируемся на список ниже. Остальные решения на вас.
+Стэк: `Typescript \ React \ Redux || Zustand`
 
-In the project directory, you can run:
+Для задачи можно выбрать любое публичное api, например, отсюда https://github.com/public-apis/public-apis Все полученные и созданные данные хранить во внутреннем store
 
-### `npm start`
+Можно использовать ui библиотеки, библиотеки для работы с формой.
+Будет оцениваться подход к заданию, качество и структура кода.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Задача 1. Вывести список продуктов
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+На странице /products
 
-### `npm test`
+- вывести весь список продуктов
+- на карточке должна быть иконка лайка. При нажатии на которую, ставится или убирается like. Иконка должна подкрашиваться, когда проставлен like.
+- на карточке должна быть иконка удаления. При нажатии на которую, карточка удаляется.
+- добавить фильтр для просмотра всех карточек и карточек, добавленных в избранное
+- контент карточки(текст) должен быть урезан, чтобы у карточек была одинаковая высота
+- при клике на любом месте карточки (кроме иконки лайка и кнопки удаления) мы должно попадать на отдельную страницу карточки.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Задача 2. Страница продукта
 
-### `npm run build`
+На странице /products/:id
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- вывести более подробную информацию о продукте.
+- сделать кнопку для перехода на основную страницу
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Задача 3. Создание продукта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+На отдельной странице /create- product реализовать создание продукта
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- создать форму с полями. Поля обязательные и с минимальной валидацией.
+- при отправке формы, сохранить данные в общий store.
