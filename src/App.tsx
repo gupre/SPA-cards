@@ -9,7 +9,7 @@ import './styles/App.css';
 
 const App: React.FC = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
