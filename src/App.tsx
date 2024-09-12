@@ -18,7 +18,7 @@ const App: React.FC = () => {
           <div className='home'>
             <div className="home-container">
               <h1 className='home-title'>Добро пожаловать! <br/> </h1>
-              <a className='home-link' href="/products">Перейти к продуктам</a>
+              <a className='home-link' href="#/products">Перейти к продуктам</a>
             </div>
           </div>
           } />
