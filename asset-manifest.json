@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SPA-cards/static/css/main.955eebb0.css",
+    "main.js": "/SPA-cards/static/js/main.15eba5a9.js",
+    "index.html": "/SPA-cards/index.html",
+    "main.955eebb0.css.map": "/SPA-cards/static/css/main.955eebb0.css.map",
+    "main.15eba5a9.js.map": "/SPA-cards/static/js/main.15eba5a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.955eebb0.css",
+    "static/js/main.15eba5a9.js"
+  ]
+}
